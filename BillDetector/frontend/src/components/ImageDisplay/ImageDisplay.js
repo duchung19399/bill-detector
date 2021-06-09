@@ -4,13 +4,12 @@ export default class ImageDisplay extends Component {
 
     constructor(props) {
         super(props)
-        this.src = props.src
     }
 
     render() {
         return(
-            <div style={Styles.imageFrame}>
-                <img style={Styles.imageDisplay} src={this.src} />
+            <div className="image-frame" style={Styles.imageFrame}>
+                <img style={Styles.imageDisplay} src={this.props.src} alt={this.props.alt} />
             </div>
         )
     }
@@ -18,12 +17,17 @@ export default class ImageDisplay extends Component {
 
 const Styles = {
     imageFrame: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: 'auto',
+        padding: '10px',
     },
     
     imageDisplay: {
         display: 'block',
-        width: '90%',
-        height: '90%',
-        marginHorizontal: 'auto',
+        width: '100%',
+        height: 'auto',
+        margin: 'auto',
     },
 }
