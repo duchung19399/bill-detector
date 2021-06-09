@@ -42,9 +42,13 @@ export default class CreateModel extends Component {
                     </label>
                 </div>
                 <div className="body">
-                    <div className="label-name">Tên Model</div>
+                    <div className="label-name">
+                        <label>Model Name</label>
+                    </div>
                     <ImageDisplay src={_url} />
-                    <div className="label-name">Tên ảnh</div>
+                    <div className="label-name">
+                        <label>Image Name</label>
+                    </div>
                     <Grid style={Styles.resultFrame} container spacing={1}>
                         {
                             this.state.features.map((value, index) => (
@@ -56,39 +60,26 @@ export default class CreateModel extends Component {
                                     style={{display: 'flex'}}
                                 >
                                     <Grid item xs={5} align='left' style={{ paddingLeft: '50px'}}>
-                                        {/* <input style={Styles.feature} type="text" placeholder={value}/> */}
-                                        <label>{value}</label>
+                                        <label style={{ fontSize: '15px' }}>{value}</label>
                                     </Grid>
                                     <Grid item xs={2} align='center'>:</Grid>
                                     <Grid item xs={5} align='left'>
-                                        <input style={Styles.feature} type="text" placeholder={this.state.weights[index]}/>
+                                        <input style={Styles.feature} type="number" placeholder={this.state.weights[index]}/>
                                     </Grid>
                                 </Grid>
                             ))
                         }
                     </Grid>
-                    {/* <Grid style={Styles.featureGroup} container spacing={1}>
-                        <Grid item xs={6} align='center'>
-                            <div className="button" onClick={this.addFeature}>
-                                New feature
-                            </div>
-                        </Grid>
-                        <Grid item xs={6} align='center'>
-                            <div className="button" onClick={this.clearFeature}>
-                                Clear feature
-                            </div>
-                        </Grid>
-                    </Grid> */}
                 </div>
                 <div className="footer">
                     <Grid container spacing={1}>
                         <Grid item xs={6} align='center' style={Styles.gridItem}>
-                            <div className="button">
-                                <label>Run Model</label>
+                            <div className="button" data-tip="Train Model">
+                                <label>Train Model</label>
                             </div>
                         </Grid>
                         <Grid item xs={6} align='center' style={Styles.gridItem}>
-                            <div className="button">
+                            <div className="button" data-tip="Export Model">
                                 <label>Export Model</label>
                             </div>
                         </Grid>

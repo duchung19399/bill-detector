@@ -8,13 +8,15 @@ export default class ImageProvider extends Component {
             srcList: [],
             nameList: [],
             chosenImages: [],
-            current_src: "https://www.w3schools.com/w3images/lights.jpg",
+            current_src: "https://cdn2.iconfinder.com/data/icons/document-34/200/358-512.png",
             current_name: "Example.png"
         }
 
         this.addImages = this.addImages.bind(this)
-        this.clearImages = this.clearImages.bind(this)
+        this.removeImages = this.removeImages.bind(this)
         this.updateImage = this.updateImage.bind(this)
+        this.removeTicks = this.removeTicks.bind(this)
+        this.removeAllImg = this.removeAllImg.bind(this)
     }
 
     addImages(e) {
@@ -32,11 +34,13 @@ export default class ImageProvider extends Component {
         })
     }
 
-    clearImages() {
+    removeImages() {
         this.setState({
             srcList: [],
             nameList: [],
             chosenImages: [],
+            current_src: "https://cdn2.iconfinder.com/data/icons/document-34/200/358-512.png",
+            current_name: "Example.png"
         })
     }
 
@@ -46,8 +50,7 @@ export default class ImageProvider extends Component {
         let index = _chosenImages.indexOf(me.alt)
         if (me.src !== undefined) {
             if (index === -1) {
-                console.log(_chosenImages, me.alt)
-                _chosenImages.concat(me.alt)
+                _chosenImages.push(me.alt)
             }
             else
                 _chosenImages.splice(index, 1)
@@ -57,7 +60,24 @@ export default class ImageProvider extends Component {
                 chosenImages: _chosenImages
             })
         }
-        // console.log(index, _chosenImages);
+    }
+
+    removeTicks() {
+        this.setState({
+            chosenImages: [],
+            current_src: "https://cdn2.iconfinder.com/data/icons/document-34/200/358-512.png",
+            current_name: "Example.png"
+        })
+    }
+
+    removeAllImg() {
+        this.setState({
+            srcList: [],
+            nameList: [],
+            chosenImages: [],
+            current_src: "https://cdn2.iconfinder.com/data/icons/document-34/200/358-512.png",
+            current_name: "Example.png"
+        })
     }
 
     render() {
@@ -70,7 +90,9 @@ export default class ImageProvider extends Component {
                 name:this.state.current_name,
                 update: this.updateImage,
                 add: this.addImages,
-                clear: this.clearImages
+                removeImages: this.removeImages,
+                removeTicks: this.removeTicks,
+                removeAllImg: this.removeAllImg
             }}>
                 {this.props.children}
             </ImageContext.Provider>
