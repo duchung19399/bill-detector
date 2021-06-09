@@ -3,15 +3,15 @@ import { Grid } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 import ImageDisplay from '../ImageDisplay/ImageDisplay'
 
-let _url = "https://neilpatel.com/wp-content/uploads/2017/09/image-editing-tools.jpg"
+let _url = "https://www.w3schools.com/w3images/lights.jpg"
 
 export default class CreateModel extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            features: ['feature1', 'feature2'],
-            weights: ['weight1', 'weight2']
+            features: ['Epoch', 'Learning Rate'],
+            weights: ['1', '1']
         }
         this.addFeature = this.addFeature.bind(this)
         this.clearFeature = this.clearFeature.bind(this)
@@ -38,11 +38,13 @@ export default class CreateModel extends Component {
             <div className="side-frame">
                 <div className="header">
                     <label>
-                        Create Model
+                        Model Infomation
                     </label>
                 </div>
                 <div className="body">
+                    <div className="label-name">Tên Model</div>
                     <ImageDisplay src={_url} />
+                    <div className="label-name">Tên ảnh</div>
                     <Grid style={Styles.resultFrame} container spacing={1}>
                         {
                             this.state.features.map((value, index) => (
@@ -53,8 +55,9 @@ export default class CreateModel extends Component {
                                     align='center'
                                     style={{display: 'flex'}}
                                 >
-                                    <Grid item xs={5} align='right'>
-                                        <input style={Styles.feature} type="text" placeholder={value}/>
+                                    <Grid item xs={5} align='left' style={{ paddingLeft: '50px'}}>
+                                        {/* <input style={Styles.feature} type="text" placeholder={value}/> */}
+                                        <label>{value}</label>
                                     </Grid>
                                     <Grid item xs={2} align='center'>:</Grid>
                                     <Grid item xs={5} align='left'>
@@ -64,7 +67,7 @@ export default class CreateModel extends Component {
                             ))
                         }
                     </Grid>
-                    <Grid style={Styles.featureGroup} container spacing={1}>
+                    {/* <Grid style={Styles.featureGroup} container spacing={1}>
                         <Grid item xs={6} align='center'>
                             <div className="button" onClick={this.addFeature}>
                                 New feature
@@ -75,16 +78,16 @@ export default class CreateModel extends Component {
                                 Clear feature
                             </div>
                         </Grid>
-                    </Grid>
+                    </Grid> */}
                 </div>
                 <div className="footer">
                     <Grid container spacing={1}>
-                        <Grid item xs={6} align='center'>
+                        <Grid item xs={6} align='center' style={Styles.gridItem}>
                             <div className="button">
                                 <label>Run Model</label>
                             </div>
                         </Grid>
-                        <Grid item xs={6} align='center'>
+                        <Grid item xs={6} align='center' style={Styles.gridItem}>
                             <div className="button">
                                 <label>Export Model</label>
                             </div>
@@ -111,6 +114,12 @@ const Styles = {
     feature: {
         width: '80%',
         marginHorizontal: 10,
+    },
+
+    gridItem: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     
     exportModel: {
