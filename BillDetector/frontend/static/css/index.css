@@ -10,7 +10,8 @@ html, body {
 #main {
     width: 100%;
     height: 100%;
-    background-color: rgb(226, 226, 255);
+    /* background-color: rgb(240, 240, 255); */
+    background-color: #dbe6fd;
 }
 
 #app {
@@ -20,12 +21,12 @@ html, body {
 
 /* Navbar */
 .NavbarItems {
-    background-color: rgb(110, 94, 254);
     height: 80px;
     display: flex;
     align-self: center;
     justify-content: center;
     font-size: 1.2rem;
+    background-color: #293b5f;
 }
 
 .navbar-logo {
@@ -52,21 +53,23 @@ html, body {
 }
 
 .nav-links {
-    color: #fff;
     text-decoration: none;
     padding: 0.5rem 1rem;
+    color: #fff;
+    font-weight: 600;
 }
 
 .nav-links:hover {
-    background-color: #6d76f7;
+    background-color: #47597e;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 /* App */
 .main-ui {
     display: flex;
     height: calc(99vh - 80px);
-    background-color: rgb(226, 226, 255);
+    background-color: #dbe6fd;
 }
 
 .side-frame {
@@ -99,6 +102,8 @@ html, body {
     overflow-x: hidden;
     overflow-y: auto;
     padding-top: 10px;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 .footer {
@@ -115,18 +120,31 @@ html, body {
     justify-content: center;
 }
 
+input {
+    text-indent: 5px;
+    background: #dbe6fd;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+input:focus {
+    outline: none;
+}
+
 .button {
     width: 120px;
     height: 37px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(51, 122, 183, 0.6);
+    background-color: rgba(71, 89, 126, 0.5);
     border-radius: 5%;
+    cursor: pointer;
 }
 
 .button:hover {
-    background-color: rgba(51, 122, 183, 1);
+    background-color: rgba(71, 89, 126, 1);
 }
 
 .label-name {
@@ -158,16 +176,8 @@ img {
 }
 
 select {
-    background: rgb(110, 94, 254);
+    background-color: #293b5f;
     color: #fff;
-    outline: none;
     text-decoration: none;
-}
-
-select:focus {
-    outline: none;
-}
-
-select:checked {
-    outline: none;
+    border: 1px solid #293b5f;
 }
